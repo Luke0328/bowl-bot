@@ -28,7 +28,6 @@ async def help(ctx, arg):
     help_msg = """
     !stats - display current lifetime stats
     !addscore - add scores from a game
-
     """
     await ctx.send(help_msg)
 
