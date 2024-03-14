@@ -37,7 +37,7 @@ class BowlBot(commands.Cog):
 
         score_data = score_msg.content.split()
         extra_frame_msg_text = extra_frame_msg.content
-        
+
         # check score and extra frame messages for errors
         res_msg = 'd'
         if len(score_data) != 3:
@@ -51,7 +51,9 @@ class BowlBot(commands.Cog):
         elif int(score_data[2]) > 10:
             res_msg = 'Can not score more than 10 spares in a game. Please try again.'
         elif extra_frame_msg_text != 'y' and extra_frame_msg_text != 'n':
-            res_msg = "Please enter only y or n."
+            res_msg = 'Please enter only y or n.'
+        elif int(score_data[1]) == 0 and int(score_data[2]) == 0 and extra_frame_msg_text == 'y':
+            res_msg = 'Can not receive an extra frame with no strikes or spares. Please try again.'
         else:
             extra = False
             if (extra_frame_msg_text == 'y'):
